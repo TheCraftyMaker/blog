@@ -14,9 +14,9 @@ jobs:
       - uses: actions/checkout@v2
       # sets up .NET Core SDK 6
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v1.9.0
         with:
-          dotnet-version: 6
+          dotnet-version: 6.0.x
       # publishes Blazor project to the release-folder
       - name: Publish .NET Core Project
         run: dotnet publish SharpSplash.UI.csproj -c Release -o release --nologo

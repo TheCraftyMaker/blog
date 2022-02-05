@@ -1,0 +1,9 @@
+﻿using SharpSplash.Blog.UI.Models;
+
+namespace SharpSplash.Blog.UI.Services
+{
+    public interface ICosmicService
+    {
+        Task<AllPosts> GetAllPosts();
+    }
+}

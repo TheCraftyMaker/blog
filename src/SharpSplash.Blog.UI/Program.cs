@@ -1,11 +1,27 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using SharpSplash.Blog.UI;
+using SharpSplash.Blog.UI.Infrastructure.Configuration;
+using SharpSplash.Blog.UI.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddScoped(_ => new HttpClient
+{
+    BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
+});
+    
+builder.Services.AddSingleton(provider => 
+{
+    var config = provider.GetService<IConfiguration>();
+    
+    return config != null 
+        ? config.GetSection("App").Get<CosmicOptions>() 
+        : new CosmicOptions();
+});
+
+builder.Services.AddTransient<ICosmicService, CosmicService>();
 
 await builder.Build().RunAsync();

@@ -34,6 +34,7 @@ jobs:
           files: 'release/wwwroot/appsettings.json'
         env:
           Cosmic.BucketSlug: ${{ secrets.COSMIC_BUCKET_SLUG }}
+          Cosmic.ReadKey: ${{ secrets.COSMIC_READ_KEY }}
         
       # Commit relevant files to gh-pages branch
       - name: Commit wwwroot to GitHub Pages

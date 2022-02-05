@@ -12,20 +12,22 @@ jobs:
     steps:
       # uses GitHub's checkout action to checkout code form the master branch
       - uses: actions/checkout@v2
+      
       # sets up .NET Core SDK 6
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v1.9.0
         with:
           dotnet-version: 6.0.x
+          
       # publishes Blazor project to the release-folder
       - name: Publish .NET Core Project
         run: dotnet publish src/SharpSplash.Blog.UI/SharpSplash.Blog.UI.csproj -c Release -o release --nologo
-      # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
-      #- name: Change base-tag in index.html from / to BlazorGitHubPagesDemo
-      #  run: sed -i 's/<base href="\/" \/>/<base href="\/SharpSplash.Blog.UI\/" \/>/g' release/wwwroot/index.html
+
       # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
       - name: Add .nojekyll file
         run: touch release/wwwroot/.nojekyll
+        
+      # Commit relevant files to gh-pages branch
       - name: Commit wwwroot to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:

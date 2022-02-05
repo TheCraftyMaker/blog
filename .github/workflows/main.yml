@@ -21,7 +21,7 @@ jobs:
       - name: Publish .NET Core Project
         run: dotnet publish SharpSplash.UI.csproj -c Release -o release --nologo
       - name: Commit wwwroot to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.2.3
+        uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages

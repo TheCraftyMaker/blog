@@ -2,8 +2,8 @@
 {
     public class AllPosts
     {
-        public int Limit { get; set; }
-        public int Total { get; set; }
+        public int Limit { get; set; } = 0;
+        public int Total { get; set; } = 0;
         public IEnumerable<Post> Objects { get; set; }
 
         public AllPosts()

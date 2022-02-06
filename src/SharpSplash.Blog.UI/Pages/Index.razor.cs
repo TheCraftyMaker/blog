@@ -8,7 +8,7 @@ namespace SharpSplash.Blog.UI.Pages
     {
         [Inject] public ICosmicService CosmicService { get; set; }
 
-        private AllPosts _allPosts;
+        private AllPosts _allPosts = new();
 
         protected override async Task OnInitializedAsync()
         {

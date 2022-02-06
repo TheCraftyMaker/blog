@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor.Services;
 using SharpSplash.Blog.UI;
 using SharpSplash.Blog.UI.Infrastructure.Configuration;
 using SharpSplash.Blog.UI.Services;
@@ -21,6 +22,8 @@ builder.Services.AddSingleton(provider =>
         ? config.GetSection("App").Get<CosmicOptions>() 
         : new CosmicOptions();
 });
+
+builder.Services.AddMudServices();
 
 builder.Services.AddTransient<ICosmicService, CosmicService>();
 

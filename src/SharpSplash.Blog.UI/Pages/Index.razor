@@ -1,13 +1,20 @@
 ﻿@page "/"
 
-<PageTitle>Welcome</PageTitle>
+<PageTitle>Sharp Splash Blog</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-@foreach (var post in _allPosts.Objects)
-{
-    <div>@post.Title</div>
-}
-
+<div id="blog-posts">
+    <MudGrid Justify="Justify.Center">
+        <MudItem xs="12" Class="header d-flex justify-center mb-10">
+            <MudText Typo="Typo.h3">{ # Splash }</MudText>
+        </MudItem>
+        @foreach (var post in _allPosts.Objects)
+        {
+            <BlogPost Post="post"/>
+        }
+        <MudItem xs="12" Class="footer d-flex align-center align-baseline justify-center mud-width-full mt-10">
+            <a href="https://app.cosmicjs.com/add-bucket?import_bucket=61fe9961f7630c0008e7b670">
+                <img src="https://web-assets.cosmicjs.com/images/powered-by-cosmic.svg"/>
+            </a>
+        </MudItem>
+    </MudGrid>
+</div>

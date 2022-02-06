@@ -17,14 +17,12 @@
 
 <MudItem xs="3" Class="pt-0"/>
 <MudItem xs="4" Class="item d-flex justify-left pt-0">
-    <MudChipSet>
-        @foreach (var category in Post.Metadata.Categories)
+    @foreach (var category in Post.Metadata.Categories)
         {
             <MudChip Label="true" Color="category.Color" Size="Size.Small">
                 @category.Title
             </MudChip>
         }
-    </MudChipSet>
 </MudItem>
 <MudItem xs="5" Class="pt-0">
     <MudText Typo="Typo.caption">@Post.PublishedAt.ToString("dd/MM/yyyy HH:mm:ss")</MudText>

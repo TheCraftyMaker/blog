@@ -4,17 +4,40 @@
 
 <div id="blog-posts">
     <MudGrid Justify="Justify.Center">
-        <MudItem xs="12" Class="header d-flex justify-center mb-10">
-            <MudText Typo="Typo.h3">{ # Splash }</MudText>
-        </MudItem>
-        @foreach (var post in _allPosts.Objects)
+        @if (_loading)
         {
-            <BlogPost Post="post"/>
+            <MudItem xs="3"/>
+            <MudItem xs="5" Class="header d-flex justify-center mb-5">
+                <MudProgressCircular Color="Color.Default" Indeterminate="true" Class="ml-10"/>
+            </MudItem>
+            <MudItem xs="4"/>
         }
-        <MudItem xs="12" Class="footer d-flex align-center align-baseline justify-center mud-width-full mt-10">
-            <a href="https://app.cosmicjs.com/add-bucket?import_bucket=61fe9961f7630c0008e7b670">
+        else
+        {
+            @if (_allPosts.Objects.Any())
+            {
+                @foreach (var post in _allPosts.Objects)
+                {
+                    <BlogPost Post="post"/>
+                }
+            }
+            else
+            {
+                <MudItem xs="12" Class="d-flex justify-center">
+                    <MudAlert Dense="true" Severity="Severity.Warning"
+                              Variant="Variant.Outlined" Style="width: 35%">
+                        Nothing here yet ...
+                    </MudAlert>
+                </MudItem>
+            }
+        }
+        <MudItem xs="3"/>
+        <MudItem xs="5" Class="d-flex justify-center mb-5">
+            <a href="https://app.cosmicjs.com/add-bucket?import_bucket=61fe9961f7630c0008e7b670"
+               style="margin-left: 40px;">
                 <img src="https://web-assets.cosmicjs.com/images/powered-by-cosmic.svg"/>
             </a>
         </MudItem>
+        <MudItem xs="4"/>
     </MudGrid>
 </div>

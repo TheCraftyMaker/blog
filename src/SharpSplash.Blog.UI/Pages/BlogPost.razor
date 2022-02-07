@@ -1,35 +1,35 @@
 ﻿<MudItem xs="3"/>
-<MudItem xs="4" Class="item d-flex justify-left">
+<MudItem xs="5" Class="item d-flex justify-left">
     <MudLink Href="@($"/postdetail/{Post.Slug}")" Underline="Underline.None" 
              Color="Color.Default" Typo="Typo.h6" Class="ml-1">
         @Post.Title
     </MudLink>
 </MudItem>
-<MudItem xs="5"/>
+<MudItem xs="4"/>
 
 <MudItem xs="3" Class="pt-0"/>
-<MudItem xs="4" Class="item d-flex justify-left pt-0">
+<MudItem xs="5" Class="item d-flex justify-left pt-0">
     <MudText Typo="Typo.body2" Class="ml-1">
-        @Post.Metadata.Teaser
+        @((MarkupString)Post.Metadata.Teaser)
     </MudText>
 </MudItem>
-<MudItem xs="5" Class="pt-0"/>
+<MudItem xs="4" Class="pt-0"/>
 
 <MudItem xs="3" Class="pt-0"/>
 <MudItem xs="4" Class="item d-flex justify-left pt-0">
     @foreach (var category in Post.Metadata.Categories)
-        {
-            <MudChip Label="true" Color="category.Color" Size="Size.Small">
-                @category.Title
-            </MudChip>
-        }
+    {
+        <MudChip Label="true" Color="category.Color" Size="Size.Small" >
+            @category.Title
+        </MudChip>
+    }
 </MudItem>
 <MudItem xs="5" Class="pt-0">
     <MudText Typo="Typo.caption">@Post.PublishedAt.ToString("dd/MM/yyyy HH:mm:ss")</MudText>
 </MudItem>
 
-<MudItem xs="3" Class="pt-0 mb-5"/>
-<MudItem xs="9" Class="pt-0 mb-5">
+<MudItem xs="3" Class="pt-0"/>
+<MudItem xs="9" Class="pt-0">
     <div class="blog-divider">
     </div>
 </MudItem>

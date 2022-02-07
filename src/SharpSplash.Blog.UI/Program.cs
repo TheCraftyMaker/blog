@@ -4,6 +4,7 @@ using MudBlazor.Services;
 using SharpSplash.Blog.UI;
 using SharpSplash.Blog.UI.Infrastructure.Configuration;
 using SharpSplash.Blog.UI.Services;
+using SharpSplash.Blog.UI.Shared;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -25,6 +26,7 @@ builder.Services.AddSingleton(provider =>
 
 builder.Services.AddMudServices();
 
+builder.Services.AddSingleton<ThemeProvider>();
 builder.Services.AddTransient<ICosmicService, CosmicService>();
 
 await builder.Build().RunAsync();

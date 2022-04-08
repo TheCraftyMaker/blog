@@ -24,7 +24,7 @@ namespace SharpSplash.Blog.UI.Services
                 .Get<CosmicOptions>();
         }
 
-        public async Task<AllPosts> GetAllPosts()
+        public async Task<AllPosts> GetPosts(int limit, int skip)
         {
             try
             {
@@ -33,7 +33,8 @@ namespace SharpSplash.Blog.UI.Services
                 var readKey = _cosmicConfig.ReadKey;
 
                 var resourceUrl = $"{url}{BucketUrl.Replace("{COSMIC_BUCKET_SLUG}", bucketSlug)}" +
-                                  $"?type=posts&read_key={readKey}";
+                                  $"?type=posts&limit={limit}&skip={skip * limit}&sort=created_at" +
+                                  $"&read_key={readKey}";
 
                 return await _httpClient.GetFromJsonAsync<AllPosts>(resourceUrl);
             }

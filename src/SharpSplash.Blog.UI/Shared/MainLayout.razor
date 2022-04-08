@@ -11,11 +11,11 @@
             <div id="header">
                 <MudGrid Justify="Justify.Center">
                     <MudItem xs="3"/>
-                    <MudItem xs="5" Class="header d-flex justify-center mb-5">
+                    <MudItem xs="6" Class="header d-flex justify-center mb-5">
                         <MudImage Src="@_logoUri" Alt="To the moon!" Class="ml-5 logo"/>
                         <MudText Typo="Typo.h3" Class="ml-5">{ # Splash }</MudText>
                     </MudItem>
-                    <MudItem xs="4">
+                    <MudItem xs="3">
                         <MudIcon Icon="@_darkModeStateIcon" Size="Size.Small" Class="mr-2"/>
                         <MudSwitch @bind-Checked="@ThemeProvider.IsDarkMode" 
                                    Color="Color.Default" T="bool"/>

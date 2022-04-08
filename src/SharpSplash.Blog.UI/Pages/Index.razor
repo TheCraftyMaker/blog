@@ -7,10 +7,10 @@
         @if (_loading)
         {
             <MudItem xs="3"/>
-            <MudItem xs="5" Class="header d-flex justify-center mb-5">
+            <MudItem xs="6" Class="header d-flex justify-center mb-5">
                 <MudProgressCircular Color="Color.Default" Indeterminate="true" Class="ml-10"/>
             </MudItem>
-            <MudItem xs="4"/>
+            <MudItem xs="3"/>
         }
         else
         {
@@ -31,13 +31,39 @@
                 </MudItem>
             }
         }
-        <MudItem xs="3"/>
-        <MudItem xs="5" Class="d-flex justify-center mb-5">
-            <a href="https://app.cosmicjs.com/add-bucket?import_bucket=61fe9961f7630c0008e7b670"
-               style="margin-left: 40px;">
-                <img src="https://web-assets.cosmicjs.com/images/powered-by-cosmic.svg"/>
-            </a>
-        </MudItem>
-        <MudItem xs="4"/>
+        @if (!_loading)
+        {
+            <MudItem xs="12" sm="12" xl="12">
+                @if (_page > 0)
+                {
+                    <span style="margin-left: 22%">
+                        <MudButton Variant="Variant.Filled" Size="Size.Small"
+                                   StartIcon="@Icons.Material.Filled.ArrowBack"
+                                   Color="Color.Surface" OnClick="RecentClick">
+                            Recent
+                        </MudButton>
+                    </span>
+                }
+                else
+                {
+                    <span style="margin-left: 30%"></span>
+                }
+                <span style="margin-left: 20%">
+                    <a href="https://app.cosmicjs.com/add-bucket?import_bucket=61fe9961f7630c0008e7b670">
+                        <img src="https://web-assets.cosmicjs.com/images/powered-by-cosmic.svg"/>
+                    </a>
+                </span>
+                <span style="margin-left: 19%">
+                    @if (!_noMorePosts)
+                    {
+                        <MudButton Variant="Variant.Filled" Size="Size.Small"
+                                   EndIcon="@Icons.Material.Filled.ArrowForward"
+                                   Color="Color.Surface" OnClick="OlderClick">
+                            Older
+                        </MudButton>
+                    }
+                </span>
+            </MudItem>
+        }
     </MudGrid>
 </div>

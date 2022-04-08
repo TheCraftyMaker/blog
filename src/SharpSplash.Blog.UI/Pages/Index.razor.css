@@ -1,4 +1,5 @@
 #blog-posts ::deep.blog-divider {
     border: dotted 1px darkgray;
-    width: 60%;
+    width: 65%;
+    margin-left: 13%;
 }

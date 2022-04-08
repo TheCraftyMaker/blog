@@ -364,4 +364,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Jetbrains Rider
-/.idea/.idea.krikke-21.github.io.dir/.idea
+/.idea/

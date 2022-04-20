@@ -32,11 +32,29 @@ namespace SharpSplash.Blog.UI.Services
                 var bucketSlug = _cosmicConfig.BucketSlug;
                 var readKey = _cosmicConfig.ReadKey;
 
-                var resourceUrl = $"{url}{BucketUrl.Replace("{COSMIC_BUCKET_SLUG}", bucketSlug)}" +
-                                  $"?type=posts&limit={limit}&skip={skip * limit}&sort=created_at" +
-                                  $"&read_key={readKey}";
+                var resourceUrl = $"{url}/{bucketSlug}/objects?type=posts&limit={limit}&skip={skip * limit}" +
+                                  $"&sort=created_at&read_key={readKey}";
 
                 return await _httpClient.GetFromJsonAsync<AllPosts>(resourceUrl);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public async Task<SinglePost> GetPost(string slug)
+        {
+            try
+            {
+                var url = _cosmicConfig.Url;
+                var bucketSlug = _cosmicConfig.BucketSlug;
+                var readKey = _cosmicConfig.ReadKey;
+
+                var resourceUrl = $"{url}/{bucketSlug}/object/{slug}?read_key={readKey}";
+
+                return await _httpClient.GetFromJsonAsync<SinglePost>(resourceUrl);
             }
             catch (Exception e)
             {

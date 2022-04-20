@@ -1,4 +1,5 @@
 ﻿@page "/"
+@page "/{Page:int}"
 
 <PageTitle>Sharp Splash Blog</PageTitle>
 
@@ -18,7 +19,7 @@
             {
                 @foreach (var post in _allPosts.Objects)
                 {
-                    <BlogPost Post="post"/>
+                    <BlogPost Post="post" PageLocation="Page"/>
                 }
             }
             else
@@ -34,7 +35,7 @@
         @if (!_loading)
         {
             <MudItem xs="12" sm="12" xl="12">
-                @if (_page > 0)
+                @if (Page > 0)
                 {
                     <span style="margin-left: 22%">
                         <MudButton Variant="Variant.Filled" Size="Size.Small"

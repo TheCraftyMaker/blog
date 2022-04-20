@@ -5,12 +5,12 @@ namespace SharpSplash.Blog.UI.Models
 {
     public class Post
     {
-        public string Id { get; set; }
         public string Slug { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         [JsonPropertyName("published_at")] public DateTime PublishedAt { get; set; }
         public PostMetadata Metadata { get; set; }
+        public string Thumbnail { get; set; }
     }
 
     public class PostMetadata

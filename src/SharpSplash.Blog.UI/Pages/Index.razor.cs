@@ -8,18 +8,19 @@ namespace SharpSplash.Blog.UI.Pages
     {
         [Inject] public ICosmicService CosmicService { get; set; }
 
+        [Parameter] public int Page { get; set; }
+
         private AllPosts _allPosts = new();
 
         private bool _loading;
         private bool _noMorePosts;
         private const int AmountOfPostPerPage = 5;
-        private int _page;
 
         protected override async Task OnInitializedAsync()
         {
             _loading = true;
-
-            _allPosts = await CosmicService.GetPosts(AmountOfPostPerPage, _page);
+            
+            _allPosts = await CosmicService.GetPosts(AmountOfPostPerPage, Page);
 
             _loading = false;
             
@@ -28,7 +29,7 @@ namespace SharpSplash.Blog.UI.Pages
 
         private async Task OlderClick()
         {
-            _page += 1;
+            Page += 1;
 
             await GetPosts();
             
@@ -37,10 +38,10 @@ namespace SharpSplash.Blog.UI.Pages
         
         private async Task RecentClick()
         {
-            if(_page == 0)
+            if(Page == 0)
                 return;
 
-            _page -= 1;
+            Page -= 1;
 
             await GetPosts();
 
@@ -51,9 +52,9 @@ namespace SharpSplash.Blog.UI.Pages
         {
             _loading = true;
 
-            _allPosts = await CosmicService.GetPosts(AmountOfPostPerPage, _page);
+            _allPosts = await CosmicService.GetPosts(AmountOfPostPerPage, Page);
 
-            _noMorePosts = (_page + 1) * AmountOfPostPerPage >= _allPosts.Total;
+            _noMorePosts = (Page + 1) * AmountOfPostPerPage >= _allPosts.Total;
 
             _loading = false;
 

@@ -22,7 +22,7 @@ namespace SharpSplash.Blog.UI.Shared
             }
         }
         
-        public Action<bool> DarkModeChanged { get; set; }
+        public Func<bool, Task> DarkModeChanged { get; set; }
         
         public static MudTheme CurrentTheme
         {

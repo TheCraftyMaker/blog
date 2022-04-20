@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
@@ -25,6 +26,7 @@ builder.Services.AddSingleton(provider =>
 });
 
 builder.Services.AddMudServices();
+builder.Services.AddBlazoredLocalStorage();
 
 builder.Services.AddSingleton<ThemeProvider>();
 builder.Services.AddTransient<ICosmicService, CosmicService>();

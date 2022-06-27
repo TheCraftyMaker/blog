@@ -28,7 +28,7 @@ namespace SharpSplash.Blog.UI.Models
     public class Hero
     {
         public string Url { get; set; }
-        public string ImgIxUrl { get; set; }
+        [JsonPropertyName("imgix_url")] public string ImgIxUrl { get; set; }
     }
 
     public class Category

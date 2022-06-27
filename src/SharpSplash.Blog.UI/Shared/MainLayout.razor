@@ -9,20 +9,29 @@
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.Large">
             <div id="header">
-                <MudGrid Justify="Justify.Center">
-                    <MudItem xs="3"/>
-                    <MudItem xs="6" Class="header d-flex justify-center mb-5">
-                        <MudImage Src="@_logoUri" Alt="To the moon!" Class="ml-5 logo"/>
+                <MudGrid>
+                    <MudItem xs="12" Class="d-flex justify-center mb-10">
+                        <MudImage Src="@_logoUri" Alt="To the moon!" Class="ml-5 mr-3 logo"/>
                         <MudText Typo="Typo.h3" Class="ml-5">{ # Splash }</MudText>
-                    </MudItem>
-                    <MudItem xs="3">
-                        <MudIcon Icon="@_darkModeStateIcon" Size="Size.Small" Class="mr-2"/>
-                        <MudSwitch @bind-Checked="@ThemeProvider.IsDarkMode" 
-                                   Color="Color.Default" T="bool"/>
+                        <MudSwitch @bind-Checked="@ThemeProvider.IsDarkMode"
+                                   Color="Color.Default" T="bool" Class="ml-10"/>
+                        <MudIcon Icon="@_darkModeStateIcon" Size="Size.Small" Class="mt-6"/>
                     </MudItem>
                 </MudGrid>
             </div>
             @Body
+            <div id="footer">
+                <MudGrid>
+                     <MudItem xs="12" Class="d-flex justify-center mt-10">
+                        <span>
+                            <a href="https://app.cosmicjs.com/add-bucket?import_bucket=61fe9961f7630c0008e7b670">
+                                <img src="https://web-assets.cosmicjs.com/images/powered-by-cosmic.svg" 
+                                     alt="Powered by cosmic"/>
+                            </a>
+                        </span>
+                    </MudItem>
+                </MudGrid>
+            </div>
         </MudContainer>
     </MudMainContent>
 </MudLayout>

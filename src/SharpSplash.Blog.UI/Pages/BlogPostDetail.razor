@@ -1,35 +1,44 @@
 ﻿@page "/post/{Slug}/{PageLocation:int}"
 
 <div id="blog-post">
-    <MudGrid Justify="Justify.Center" Class="mt-6 ml-5">
+    <MudGrid>
         @if (_loading)
         {
-            <MudItem xs="3"/>
-            <MudItem xs="6" Class="header d-flex justify-center">
+            <MudItem xs="2"/>
+            <MudItem xs="8" Class="d-flex justify-center">
                 <MudProgressCircular Color="Color.Default" Indeterminate="true" Class="ml-10"/>
             </MudItem>
-            <MudItem xs="3"/>
+            <MudItem xs="2"/>
         }
 
         @if (_post is {Object: { } } && !_loading)
         {
-            <MudItem xs="3" sm="3" xl="3" Class="pt-0"/>
-            <MudItem xs="6" sm="6" xl="6" Class="item d-flex justify-center pt-0">
-                <MudText Typo="Typo.body2" Class="ml-1">
+            <MudItem xs="2"/>
+            <MudItem xs="8">
+                <MudText Typo="Typo.body2">
                     @((MarkupString) _post.Object.Content)
                 </MudText>
             </MudItem>
-            <MudItem xs="3" sm="3" xl="3" Class="pt-0"/>
-
-            <MudItem xs="12" sm="12" xl="12" Class="mb-5">
-                <span style="margin-left: 22%">
-                    <MudButton Variant="Variant.Filled" Size="Size.Small"
-                               StartIcon="@Icons.Material.Filled.ArrowBack"
-                               Color="Color.Surface" OnClick="BackClick">
-                        Back
-                    </MudButton>
-                </span>
+            <MudItem xs="2"/>
+        }
+        else
+        {
+            <MudItem xs="12" Class="d-flex justify-center">
+                <MudAlert Dense="true" Severity="Severity.Normal"
+                          Variant="Variant.Outlined" Style="width: 65%">
+                    Nothing here yet ...
+                </MudAlert>
             </MudItem>
         }
+        
+        <MudItem xs="2"/>
+        <MudItem xs="8" Class="d-flex justify-start">
+            <MudButton Variant="Variant.Filled" Size="Size.Small"
+                       StartIcon="@Icons.Material.Filled.ArrowBack"
+                       Color="Color.Surface" OnClick="BackClick">
+                Back
+            </MudButton>
+        </MudItem>
+        <MudItem xs="2"/>
     </MudGrid>
 </div>

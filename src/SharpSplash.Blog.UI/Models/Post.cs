@@ -41,10 +41,10 @@ namespace SharpSplash.Blog.UI.Models
             {
                 return Title.ToLowerInvariant() switch
                 {
-                    "make it funky" => Color.Secondary,
-                    "let's get technical" => Color.Info,
-                    "deep thoughts" => Color.Success,
-                    "random" => Color.Warning,
+                    "home automation" => Color.Secondary,
+                    "tinkering" => Color.Info,
+                    /*"deep thoughts" => Color.Success,
+                    "random" => Color.Warning,*/
                     _ => Color.Default
                 };
             }

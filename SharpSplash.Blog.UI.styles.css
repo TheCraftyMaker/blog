@@ -1,8 +1,12 @@
+/* /Pages/BlogPostDetail.razor.rz.scp.css */
+#blog-post[b-cynfer7zso]  img{
+    display: block;
+    margin: 20px auto;
+}
 /* /Pages/Index.razor.rz.scp.css */
 #blog-posts[b-qggb7fpn78] .blog-divider {
     border: dotted 1px darkgray;
-    width: 65%;
-    margin-left: 13%;
+    width: 100%;
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
 #header[b-rahdb60e8z] .logo {

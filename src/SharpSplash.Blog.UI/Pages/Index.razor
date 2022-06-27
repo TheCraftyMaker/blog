@@ -7,11 +7,11 @@
     <MudGrid Justify="Justify.Center">
         @if (_loading)
         {
-            <MudItem xs="3"/>
-            <MudItem xs="6" Class="header d-flex justify-center mb-5">
+            <MudItem xs="2"/>
+            <MudItem xs="8" Class="header d-flex justify-center mb-5">
                 <MudProgressCircular Color="Color.Default" Indeterminate="true" Class="ml-10"/>
             </MudItem>
-            <MudItem xs="3"/>
+            <MudItem xs="2"/>
         }
         else
         {
@@ -21,35 +21,18 @@
                 {
                     <BlogPost Post="post" PageLocation="Page"/>
                 }
-            }
-            else
-            {
-                <MudItem xs="12" Class="d-flex justify-center">
-                    <MudAlert Dense="true" Severity="Severity.Warning"
-                              Variant="Variant.Outlined" Style="width: 35%">
-                        Nothing here yet ...
-                    </MudAlert>
-                </MudItem>
-            }
-        }
-        @if (!_loading)
-        {
-            <MudItem xs="12" sm="12" xl="12">
-                @if (Page > 0)
-                {
-                    <span style="margin-left: 22%">
+                <MudItem xs="2"/>
+                <MudItem xs="4" Class="d-flex justify-start">
+                    @if (Page > 0)
+                    {
                         <MudButton Variant="Variant.Filled" Size="Size.Small"
                                    StartIcon="@Icons.Material.Filled.ArrowBack"
                                    Color="Color.Surface" OnClick="RecentClick">
                             Recent
                         </MudButton>
-                    </span>
-                }
-                else
-                {
-                    <span style="margin-left: 30%"></span>
-                }
-                <span style="margin-left: 19%">
+                    }
+                </MudItem>
+                <MudItem xs="4" Class="d-flex justify-end">
                     @if (!_noMorePosts)
                     {
                         <MudButton Variant="Variant.Filled" Size="Size.Small"
@@ -58,8 +41,18 @@
                             Older
                         </MudButton>
                     }
-                </span>
-            </MudItem>
+                </MudItem>
+                <MudItem xs="2"/>
+            }
+            else
+            {
+                <MudItem xs="12" Class="d-flex justify-center">
+                    <MudAlert Dense="true" Severity="Severity.Normal"
+                              Variant="Variant.Outlined" Style="width: 50%">
+                        Nothing here yet ...
+                    </MudAlert>
+                </MudItem>
+            }
         }
     </MudGrid>
 </div>

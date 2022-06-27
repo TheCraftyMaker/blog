@@ -21,6 +21,8 @@ namespace SharpSplash.Blog.UI.Pages
             _loading = true;
             
             _allPosts = await CosmicService.GetPosts(AmountOfPostPerPage, Page);
+            
+            CheckPosts();
 
             _loading = false;
             
@@ -54,11 +56,16 @@ namespace SharpSplash.Blog.UI.Pages
 
             _allPosts = await CosmicService.GetPosts(AmountOfPostPerPage, Page);
 
-            _noMorePosts = (Page + 1) * AmountOfPostPerPage >= _allPosts.Total;
+            CheckPosts();
 
             _loading = false;
 
             StateHasChanged();
+        }
+
+        private void CheckPosts()
+        {
+            _noMorePosts = (Page + 1) * AmountOfPostPerPage >= _allPosts.Total;
         }
     }
 }

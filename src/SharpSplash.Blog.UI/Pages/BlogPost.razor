@@ -1,34 +1,34 @@
-﻿<MudItem xs="3" sm="3" xl="3"/>
-<MudItem xs="6" sm="6" xl="6" Class="item d-flex justify-left">
-    <MudLink Href="@($"/post/{Post.Slug}/{PageLocation}")" Underline="Underline.None"
-             Color="Color.Default" Typo="Typo.h6" Class="ml-1">
-        @Post.Title
-    </MudLink>
+﻿<MudItem xs="2"/>
+<MudItem xs="8">
+    <MudGrid>
+        <MudItem xs="2">
+            <MudImage Src="@($"{Post.Metadata.Hero.ImgIxUrl}?w=100&h=100&q=50&fit=crop")" Alt="Visual Studio Logo"/>
+        </MudItem>
+        <MudItem xs="10">
+            <MudLink Href="@($"/post/{Post.Slug}/{PageLocation}")" Underline="Underline.None"
+                     Color="Color.Default" Typo="Typo.h6" Class="ml-1">
+                @Post.Title
+            </MudLink>
+            <MudText Typo="Typo.body2" Class="mt-5">
+                @((MarkupString) Post.Metadata.Teaser)
+            </MudText>
+        </MudItem>
+        <MudItem xs="8">
+            @foreach (var category in Post.Metadata.Categories)
+            {
+                <MudChip Label="true" Color="category.Color" Size="Size.Small">
+                    @category.Title
+                </MudChip>
+            }
+        </MudItem>
+        <MudItem xs="4" Class="d-flex justify-end">
+            <MudText Typo="Typo.caption" Class="mt-2">
+                @Post.PublishedAt.ToString("dd/MM/yyyy HH:mm:ss")
+            </MudText>
+        </MudItem>
+        <MudItem xs="12">
+            <MudElement HtmlTag="div" Class="blog-divider"/>
+        </MudItem>
+    </MudGrid>
 </MudItem>
-<MudItem xs="3" sm="3" xl="3"/>
-
-<MudItem xs="3" sm="3" xl="3" Class="pt-0"/>
-<MudItem xs="6" sm="6" xl="6" Class="item d-flex justify-left pt-0">
-    <MudText Typo="Typo.body2" Class="ml-1">
-        @((MarkupString)Post.Metadata.Teaser)
-    </MudText>
-</MudItem>
-<MudItem xs="3" sm="3" xl="3" Class="pt-0"/>
-
-<MudItem xs="3" sm="3" xl="3" Class="pt-0"/>
-<MudItem xs="6" sm="6" xl="6" Class="item d-flex justify-left pt-0">
-    @foreach (var category in Post.Metadata.Categories)
-    {
-        <MudChip Label="true" Color="category.Color" Size="Size.Small" >
-            @category.Title
-        </MudChip>
-    }
-</MudItem>
-<MudItem xs="3" sm="3" xl="3" Class="pt-0">
-    <MudText Typo="Typo.caption">@Post.PublishedAt.ToString("dd/MM/yyyy HH:mm:ss")</MudText>
-</MudItem>
-
-<MudItem xs="12" sm="12" xl="12" Class="d-flex justify-center pt-0">
-    <div class="blog-divider">
-    </div>
-</MudItem>
+<MudItem xs="2"/>

@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using MudBlazor;
 
 namespace SharpSplash.Blog.UI.Shared
@@ -9,14 +10,19 @@ namespace SharpSplash.Blog.UI.Shared
         [Inject] public ThemeProvider ThemeProvider { get; set; }
 
         [Inject] public ILocalStorageService LocalStorageService { get; set; }
+        
+        [Inject] public IJSRuntime JsRuntime { get; set; }
 
         private const string DarkModeStorageKey = "sharpsplash-darkmode";
         
         private string _darkModeStateIcon;
         private string _logoUri;
+        private IJSObjectReference _module;
 
         protected override async Task OnInitializedAsync()
         {
+            _module = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "./js/theme.js");
+            
             ThemeProvider.DarkModeChanged = HandleDarkModeChange;
 
             var isDarkMode = ThemeProvider.IsDarkMode;
@@ -32,6 +38,8 @@ namespace SharpSplash.Blog.UI.Shared
             
             _logoUri = GetLogoUri(isDarkMode);
             _darkModeStateIcon = GetDarkModeLogo(isDarkMode);
+
+            await _module.InvokeVoidAsync("SetTheme");
         }
 
         private async Task HandleDarkModeChange(bool isDarkMode)
@@ -40,6 +48,8 @@ namespace SharpSplash.Blog.UI.Shared
             _darkModeStateIcon = GetDarkModeLogo(isDarkMode);
             
             await LocalStorageService.SetItemAsync(DarkModeStorageKey, isDarkMode);
+            
+            await _module.InvokeVoidAsync("SetTheme");
         }
 
         private static string GetLogoUri(bool isDarkMode)

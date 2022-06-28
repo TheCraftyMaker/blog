@@ -1,4 +1,18 @@
-﻿#blog-post ::deep img{
+﻿#blog-post ::deep img {
     display: block;
     margin: 20px auto;
+}
+
+#blog-post ::deep pre span {
+    margin: 0;
+}
+
+#blog-post ::deep pre span p {
+    margin: 4px !important;
+}
+
+
+
+#blog-post ::deep a {
+    text-decoration: underline;
 }

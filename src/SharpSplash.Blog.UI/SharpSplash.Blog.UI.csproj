@@ -13,4 +13,14 @@
     <PackageReference Include="MudBlazor" Version="6.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="NpmJs\package-lock.json" />
+    <_ContentIncludedByDefault Remove="NpmJs\package.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\index.bundle.js.LICENSE.txt" />
+    <Content Remove="wwwroot\js\index.bundle.js" />
+  </ItemGroup>
+
 </Project>

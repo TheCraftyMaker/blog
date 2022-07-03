@@ -11,8 +11,17 @@
     margin: 4px !important;
 }
 
-
+#blog-post ::deep pre p {
+    margin: 4px !important;
+}
 
 #blog-post ::deep a {
     text-decoration: underline;
+}
+
+#blog-post ::deep .fr-inner{
+    margin: auto;
+    display: table;
+    font-size: small;
+    font-style: italic;
 }

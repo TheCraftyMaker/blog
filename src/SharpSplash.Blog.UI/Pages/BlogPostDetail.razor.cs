@@ -55,39 +55,52 @@ namespace SharpSplash.Blog.UI.Pages
             if (_post?.Object == null || string.IsNullOrEmpty(_post.Object.Content))
                 return;
 
-            var content = _post.Object.Content;
-            if (content.Contains("[CODE LANG="))
+            try
             {
-                const string pattern = @"\[CODE LANG=(.*?)\](.*?)\[\/CODE\]";
-                var matches = Regex.Matches(content, pattern, RegexOptions.Multiline);
-
-                foreach (Match match in matches)
+                var content = _post.Object.Content;
+                if (content.Contains("[CODE LANG="))
                 {
-                    Console.WriteLine($"iterating match: {match.Value}");
+                    const string pattern = @"\[CODE LANG=(.*?)\](.*?)\[\/CODE\]";
+                    var matches = Regex.Matches(content, pattern, RegexOptions.Multiline | RegexOptions.Singleline);
 
+                    foreach (Match match in matches)
+                    {
+                        Console.WriteLine($"iterating match: {match.Value}");
 
-                    var block = match.Value;
-                    if (string.IsNullOrEmpty(block))
-                        continue;
+                        var block = match.Value;
+                        if (string.IsNullOrEmpty(block))
+                            continue;
 
-                    var language = match.Groups[1].Captures[0].Value.Replace("&quot;", "");
-                    if (string.IsNullOrEmpty(language))
-                        continue;
+                        var language = match.Groups[1].Captures[0].Value.Replace("&quot;", "");
+                        if (string.IsNullOrEmpty(language))
+                            continue;
 
-                    var code = match.Groups[2].Captures[0].Value;
-                    if (string.IsNullOrEmpty(code))
-                        continue;
+                        var code = match.Groups[2].Captures[0].Value;
+                        if (string.IsNullOrEmpty(code))
+                            continue;
 
-                    var styled = await _module.InvokeAsync<string>("HighLight", code, language);
-                    if (string.IsNullOrEmpty(styled)) 
-                        continue;
-                    
-                    styled = styled.Replace("BR", "<p></p>").Replace("TB", "&nbsp;&nbsp;");
-                    
-                    var styledBlock = $@"<pre class=""language-{language}""><code class=""language-{language}"">{styled}</code></pre>";
-                    content = content.Replace(block, styledBlock);
+                        var styled = await _module.InvokeAsync<string>("HighLight", code, language);
+                        if (string.IsNullOrEmpty(styled))
+                            continue;
+
+                        styled = styled
+                            .Replace("BR", "<p></p>")
+                            .Replace("TB", "&nbsp;&nbsp;")
+                            .Replace("&amp;gt;", ">")
+                            .Replace("&amp;lt;", "<")
+                            //.Replace("<p></p>", "")
+                            .Replace(@"&amp;</span>quot<span class=""token punctuation"">;", "\"");
+
+                        var styledBlock = $@"<pre class=""language-{language}""><code class=""language-{language}"">{styled}</code></pre>";
+                        content = content.Replace(block, styledBlock);
+                    }
+
+                    _post.Object.Content = content;
                 }
-                _post.Object.Content = content;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
     }

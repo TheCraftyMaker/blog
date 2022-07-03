@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Globalization;
+using System.Text.Json.Serialization;
 using MudBlazor;
 
 namespace SharpSplash.Blog.UI.Models
@@ -18,6 +19,8 @@ namespace SharpSplash.Blog.UI.Models
         public IEnumerable<Category> Categories { get; set; }
         public string Teaser { get; set; }
         public Hero Hero { get; set; }
+
+        [JsonPropertyName("date_published")] public string DatePublished { get; set; }
 
         public PostMetadata()
         {

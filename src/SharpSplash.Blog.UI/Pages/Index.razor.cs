@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Components;
 using SharpSplash.Blog.UI.Models;
 using SharpSplash.Blog.UI.Services;
 
@@ -18,15 +19,7 @@ namespace SharpSplash.Blog.UI.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            _loading = true;
-            
-            _allPosts = await CosmicService.GetPosts(AmountOfPostPerPage, Page);
-            
-            CheckPosts();
-
-            _loading = false;
-            
-            StateHasChanged();
+            await GetPosts();
         }
 
         private async Task OlderClick()
@@ -66,6 +59,22 @@ namespace SharpSplash.Blog.UI.Pages
         private void CheckPosts()
         {
             _noMorePosts = (Page + 1) * AmountOfPostPerPage >= _allPosts.Total;
+
+            if (!_allPosts.Objects.Any()) 
+                return;
+            
+            foreach (var post in _allPosts.Objects)
+            {
+                if (string.IsNullOrEmpty(post.Metadata.DatePublished))
+                    continue;
+                    
+                if(!DateTime.TryParse(post.Metadata.DatePublished, out var parsed))
+                    continue;
+                    
+                post.Metadata.DatePublished = parsed.ToString("dd/MM/yyyy");
+            }
+
+            _allPosts.Objects = _allPosts.Objects.OrderByDescending(x => x.Metadata.DatePublished);
         }
     }
 }

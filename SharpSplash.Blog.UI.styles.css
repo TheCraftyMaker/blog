@@ -12,10 +12,19 @@
     margin: 4px !important;
 }
 
-
+#blog-post[b-cynfer7zso]  pre p {
+    margin: 4px !important;
+}
 
 #blog-post[b-cynfer7zso]  a {
     text-decoration: underline;
+}
+
+#blog-post[b-cynfer7zso]  .fr-inner{
+    margin: auto;
+    display: table;
+    font-size: small;
+    font-style: italic;
 }
 /* /Pages/Index.razor.rz.scp.css */
 #blog-posts[b-qggb7fpn78] .blog-divider {

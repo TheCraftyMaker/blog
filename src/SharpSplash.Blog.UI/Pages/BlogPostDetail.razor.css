@@ -16,7 +16,7 @@
 }
 
 #blog-post ::deep a {
-    text-decoration: underline;
+    color: #7aafe5;
 }
 
 #blog-post ::deep .fr-inner{
@@ -24,4 +24,9 @@
     display: table;
     font-size: small;
     font-style: italic;
+}
+
+#blog-post ::deep .mud-divider{
+    border: dotted 1px darkgray;
+    width: 100%;
 }

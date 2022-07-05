@@ -88,8 +88,8 @@ namespace SharpSplash.Blog.UI.Pages
                             .Replace("TB", "&nbsp;&nbsp;")
                             .Replace("&amp;gt;", ">")
                             .Replace("&amp;lt;", "<")
-                            //.Replace("<p></p>", "")
-                            .Replace(@"&amp;</span>quot<span class=""token punctuation"">;", "\"");
+                            .Replace(@"&amp;nbsp<span class=""token punctuation"">;</span>", " ")
+                            .Replace(@"<span class=""token operator"">&amp;</span>quot<span class=""token punctuation"">;</span>", "\"");
 
                         var styledBlock = $@"<pre class=""language-{language}""><code class=""language-{language}"">{styled}</code></pre>";
                         content = content.Replace(block, styledBlock);

@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 using System.Text.Json.Serialization;
 using MudBlazor;
 
@@ -21,6 +22,23 @@ namespace SharpSplash.Blog.UI.Models
         public Hero Hero { get; set; }
 
         [JsonPropertyName("date_published")] public string DatePublished { get; set; }
+
+        public DateTime? DatePublishedDateTime
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(DatePublished))
+                    return null;
+
+                if (!DateTime.TryParseExact(DatePublished, "yyyy-MM-dd",
+                        CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed))
+                {
+                    return null;
+                }
+
+                return parsed;
+            }
+        }
 
         public PostMetadata()
         {

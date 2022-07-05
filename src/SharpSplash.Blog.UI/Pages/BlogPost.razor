@@ -22,9 +22,12 @@
             }
         </MudItem>
         <MudItem xs="4" Class="d-flex justify-end">
-            <MudText Typo="Typo.caption" Class="mt-2">
-                @Post.Metadata.DatePublished
-            </MudText>
+            @if (Post.Metadata.DatePublishedDateTime.HasValue)
+            {
+                <MudText Typo="Typo.caption" Class="mt-2">
+                    @Post.Metadata.DatePublishedDateTime.Value.ToString("dd/MM/yyyy")
+                </MudText>
+            }
         </MudItem>
         <MudItem xs="12">
             <MudElement HtmlTag="div" Class="blog-divider"/>

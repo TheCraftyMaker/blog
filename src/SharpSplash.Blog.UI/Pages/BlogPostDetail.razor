@@ -19,9 +19,12 @@
                     <MudText Typo="Typo.h4">
                         @_post.Object.Title
                     </MudText>
-                    <MudText Typo="Typo.caption">
-                        @_post.Object.PublishedAt.ToString("dd/MM/yyyy")
-                    </MudText>
+                    @if (_post.Object.Metadata.DatePublishedDateTime.HasValue)
+                    {
+                        <MudText Typo="Typo.caption">
+                            @_post.Object.Metadata.DatePublishedDateTime.Value.ToString("dd/MM/yyyy")
+                        </MudText>
+                    }
                     <MudDivider DividerType="DividerType.Middle" Class="my-3 mx-0"/>
                     @((MarkupString) _post.Object.Content)
                 </MudText>

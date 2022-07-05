@@ -62,19 +62,8 @@ namespace SharpSplash.Blog.UI.Pages
 
             if (!_allPosts.Objects.Any()) 
                 return;
-            
-            foreach (var post in _allPosts.Objects)
-            {
-                if (string.IsNullOrEmpty(post.Metadata.DatePublished))
-                    continue;
-                    
-                if(!DateTime.TryParse(post.Metadata.DatePublished, out var parsed))
-                    continue;
-                    
-                post.Metadata.DatePublished = parsed.ToString("dd/MM/yyyy");
-            }
 
-            _allPosts.Objects = _allPosts.Objects.OrderByDescending(x => x.Metadata.DatePublished);
+            _allPosts.Objects = _allPosts.Objects.OrderByDescending(x => x.Metadata.DatePublishedDateTime);
         }
     }
 }

@@ -17,7 +17,7 @@
 }
 
 #blog-post[b-cynfer7zso]  a {
-    text-decoration: underline;
+    color: #7aafe5;
 }
 
 #blog-post[b-cynfer7zso]  .fr-inner{
@@ -25,6 +25,11 @@
     display: table;
     font-size: small;
     font-style: italic;
+}
+
+#blog-post[b-cynfer7zso]  .mud-divider{
+    border: dotted 1px darkgray;
+    width: 100%;
 }
 /* /Pages/Index.razor.rz.scp.css */
 #blog-posts[b-qggb7fpn78] .blog-divider {

@@ -40,8 +40,6 @@ namespace SharpSplash.Blog.UI.Pages
 
             await StyleCodeBlocks();
 
-            _loading = false;
-
             StateHasChanged();
         }
 
@@ -65,9 +63,8 @@ namespace SharpSplash.Blog.UI.Pages
 
                     foreach (Match match in matches)
                     {
-                        Console.WriteLine($"iterating match: {match.Value}");
-
                         var block = match.Value;
+                        
                         if (string.IsNullOrEmpty(block))
                             continue;
 
@@ -101,6 +98,12 @@ namespace SharpSplash.Blog.UI.Pages
             catch (Exception e)
             {
                 Console.WriteLine(e);
+            }
+            finally
+            {
+                _loading = false;
+                    
+                StateHasChanged();
             }
         }
     }

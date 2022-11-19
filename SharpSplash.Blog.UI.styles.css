@@ -1,3 +1,22 @@
+/* /Pages/About.razor.rz.scp.css */
+#links[b-239hsalgg9]  .mud-avatar {
+    background-color: white;
+    border: solid 2px #cdd6da;
+}
+
+#links[b-239hsalgg9]  .mud-avatar img {
+    width: 75%;
+    height: auto;
+}
+
+#links[b-239hsalgg9]  .mud-avatar.no-scale img {
+    width: 100%;
+    height: auto;
+}
+
+#links[b-239hsalgg9]  .gap-3 {
+    gap: 8px!important;
+}
 /* /Pages/BlogPostDetail.razor.rz.scp.css */
 #blog-post[b-cynfer7zso]  img {
     display: block;

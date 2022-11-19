@@ -16,16 +16,33 @@
                         <MudSwitch @bind-Checked="@ThemeProvider.IsDarkMode"
                                    Color="Color.Default" T="bool" Class="ml-10"/>
                         <MudIcon Icon="@_darkModeStateIcon" Size="Size.Small" Class="mt-6"/>
+                        @if (_hideAbout)
+                        {
+                            <MudTooltip Text="Home" Arrow="true" Placement="Placement.Right">
+                                <MudLink Href="/">
+                                    <MudIcon Icon="@Icons.Material.Filled.Home" Color="Color.Default" Class="ml-4" Style="margin-top: 21px"/>
+                                </MudLink>
+                            </MudTooltip>
+                        }
+                        else
+                        {
+                            <MudTooltip Text="About Me" Arrow="true" Placement="Placement.Right">
+                                <MudLink Href="/about">
+
+                                    <MudAvatar Image="img/me.jpg" Size="Size.Medium" Class="ml-5 mt-3"/>
+                                </MudLink>
+                            </MudTooltip>
+                        }
                     </MudItem>
                 </MudGrid>
             </div>
             @Body
             <div id="footer">
                 <MudGrid>
-                     <MudItem xs="12" Class="d-flex justify-center mt-10">
+                    <MudItem xs="12" Class="d-flex justify-center mt-10">
                         <span>
                             <a href="https://app.cosmicjs.com/" target="_blank">
-                                <img src="https://web-assets.cosmicjs.com/images/powered-by-cosmic.svg" 
+                                <img src="https://web-assets.cosmicjs.com/images/powered-by-cosmic.svg"
                                      alt="Powered by cosmic"/>
                             </a>
                         </span>

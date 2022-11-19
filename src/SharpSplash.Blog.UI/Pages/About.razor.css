@@ -1,0 +1,18 @@
+﻿#links ::deep .mud-avatar {
+    background-color: white;
+    border: solid 2px #cdd6da;
+}
+
+#links ::deep .mud-avatar img {
+    width: 75%;
+    height: auto;
+}
+
+#links ::deep .mud-avatar.no-scale img {
+    width: 100%;
+    height: auto;
+}
+
+#links ::deep .gap-3 {
+    gap: 8px!important;
+}

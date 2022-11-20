@@ -4,10 +4,18 @@
     <MudStack>
         <MudPaper Class="pa-4">
             <MudStack Row="true">
-                <MudAvatarGroup Max="2" Spacing="4" MaxColor="Color.Primary">
-                    <MudAvatar Image="img/me.jpg" Size="Size.Large" Class="no-scale"/>
-                    <MudAvatar Image="img/logo_oldschool_notext.png" Size="Size.Large" Class="no-scale"/>
-                </MudAvatarGroup>
+                <MudHidden Breakpoint="Breakpoint.MdAndUp">
+                    <MudAvatarGroup Max="2" Spacing="4" MaxColor="Color.Primary">
+                        <MudAvatar Image="img/me.jpg" Size="Size.Medium" Class="no-scale"/>
+                        <MudAvatar Image="img/logo_oldschool_notext.png" Size="Size.Medium" Class="no-scale"/>
+                    </MudAvatarGroup>
+                </MudHidden>
+                <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                    <MudAvatarGroup Max="2" Spacing="4" MaxColor="Color.Primary">
+                        <MudAvatar Image="img/me.jpg" Size="Size.Large" Class="no-scale"/>
+                        <MudAvatar Image="img/logo_oldschool_notext.png" Size="Size.Large" Class="no-scale"/>
+                    </MudAvatarGroup>
+                </MudHidden>
                 <MudStack Justify="Justify.Center" Spacing="0">
                     <MudText Typo="Typo.body1">Christof Lauriers (The Crafty Maker)</MudText>
                     <MudText Typo="Typo.body2">Loving Father & Husband | Software Architect | AFOL | Piano n00b | Maker</MudText>

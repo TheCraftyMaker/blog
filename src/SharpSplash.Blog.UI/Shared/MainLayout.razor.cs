@@ -41,11 +41,7 @@ namespace SharpSplash.Blog.UI.Shared
                 ThemeProvider.IsDarkMode = isDarkMode;
             }
 
-            if (NavigationManager.Uri.EndsWith("/"))
-            {
-                _hideAbout = false;
-            }
-
+            _hideAbout = !NavigationManager.Uri.EndsWith("/");
             _logoUri = GetLogoUri(isDarkMode);
             _darkModeStateIcon = GetDarkModeLogo(isDarkMode);
 

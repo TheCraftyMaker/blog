@@ -18,5 +18,7 @@
         private const string SharpSplashUrl = "https://krikke-21.github.io/";
         private const string EtsyUser = "The Crafty Maker (thecraftymakr)";
         private const string EtsyUrl = "https://www.etsy.com/shop/TheCraftyMakr";
+        private const string FacebookUser = "Christof Lauriers";
+        private const string FacebookUrl = "https://www.facebook.com/christof.lauriers";
     }
 }

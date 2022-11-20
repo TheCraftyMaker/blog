@@ -16,7 +16,7 @@
                             <MudImage Src="@_logoUri" Alt="To the moon!" Class="logo"/>
                         </MudItem>
                         <MudItem sm="4" xs="4" Class="d-flex justify-start">
-                            <MudIconButton Icon="@_darkModeStateIcon" Size="Size.Medium"
+                            <MudIconButton Icon="@_darkModeStateIcon" Size="Size.Medium" DisableRipple="true"
                                            OnClick="() => ThemeProvider.IsDarkMode = !ThemeProvider.IsDarkMode"/>
                             @if (_hideAbout)
                             {
@@ -55,7 +55,6 @@
                             {
                                 <MudTooltip Text="About Me" Arrow="true" Placement="Placement.Right">
                                     <MudLink Href="/about">
-
                                         <MudAvatar Image="img/me.jpg" Size="Size.Medium" Class="ml-5 mt-3"/>
                                     </MudLink>
                                 </MudTooltip>

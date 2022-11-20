@@ -16,5 +16,7 @@
         private const string LinkedInUrl = "https://www.linkedin.com/in/christof-lauriers";
         private const string SharpSplashUser = "Sharp Splash Blog";
         private const string SharpSplashUrl = "https://krikke-21.github.io/";
+        private const string EtsyUser = "The Crafty Maker (thecraftymakr)";
+        private const string EtsyUrl = "https://www.etsy.com/shop/TheCraftyMakr";
     }
 }

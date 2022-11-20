@@ -9,32 +9,60 @@
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.Large">
             <div id="header">
-                <MudGrid>
-                    <MudItem xs="12" Class="d-flex justify-center mb-10">
-                        <MudImage Src="@_logoUri" Alt="To the moon!" Class="ml-5 mr-3 logo"/>
-                        <MudText Typo="Typo.h3" Class="ml-5">{ # Splash }</MudText>
-                        <MudSwitch @bind-Checked="@ThemeProvider.IsDarkMode"
-                                   Color="Color.Default" T="bool" Class="ml-10"/>
-                        <MudIcon Icon="@_darkModeStateIcon" Size="Size.Small" Class="mt-6"/>
-                        @if (_hideAbout)
-                        {
-                            <MudTooltip Text="Home" Arrow="true" Placement="Placement.Right">
-                                <MudLink Href="/">
-                                    <MudIcon Icon="@Icons.Material.Filled.Home" Color="Color.Default" Class="ml-4" Style="margin-top: 21px"/>
+                <MudHidden Breakpoint="Breakpoint.MdAndUp">
+                    <MudGrid Class="mb-3">
+                        <MudItem sm="4" xs="4"/>
+                        <MudItem sm="4" xs="4" Class="d-flex justify-center">
+                            <MudImage Src="@_logoUri" Alt="To the moon!" Class="logo"/>
+                        </MudItem>
+                        <MudItem sm="4" xs="4" Class="d-flex justify-start">
+                            <MudIconButton Icon="@_darkModeStateIcon" Size="Size.Medium"
+                                           OnClick="() => ThemeProvider.IsDarkMode = !ThemeProvider.IsDarkMode"/>
+                            @if (_hideAbout)
+                            {
+                                <MudLink Href="/" Class="pt-5">
+                                    <MudIcon Icon="@Icons.Material.Filled.Home" Size="Size.Medium" 
+                                             Color="Color.Default" />
                                 </MudLink>
-                            </MudTooltip>
-                        }
-                        else
-                        {
-                            <MudTooltip Text="About Me" Arrow="true" Placement="Placement.Right">
-                                <MudLink Href="/about">
+                            }
+                            else
+                            {
+                                <MudLink Href="/about" Class="pt-6">
+                                    <MudAvatar Image="img/me.jpg" Size="Size.Small"/>
+                                </MudLink>
+                            }
+                        </MudItem>
+                    </MudGrid>
+                </MudHidden>
 
-                                    <MudAvatar Image="img/me.jpg" Size="Size.Medium" Class="ml-5 mt-3"/>
-                                </MudLink>
-                            </MudTooltip>
-                        }
-                    </MudItem>
-                </MudGrid>
+                <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                    <MudGrid>
+                        <MudItem xs="12" Class="d-flex justify-center mb-10">
+                            <MudImage Src="@_logoUri" Alt="To the moon!" Class="ml-5 mr-3 logo"/>
+                            <MudText Typo="Typo.h3" Class="ml-5">{ # Splash }</MudText>
+                            <MudSwitch @bind-Checked="@ThemeProvider.IsDarkMode"
+                                       Color="Color.Default" T="bool" Class="ml-10"/>
+                            <MudIcon Icon="@_darkModeStateIcon" Size="Size.Small" Class="mt-6"/>
+                            @if (_hideAbout)
+                            {
+                                <MudTooltip Text="Home" Arrow="true" Placement="Placement.Right">
+                                    <MudLink Href="/">
+                                        <MudIcon Icon="@Icons.Material.Filled.Home" Color="Color.Default" Class="ml-4" Style="margin-top: 21px"/>
+                                    </MudLink>
+                                </MudTooltip>
+                            }
+                            else
+                            {
+                                <MudTooltip Text="About Me" Arrow="true" Placement="Placement.Right">
+                                    <MudLink Href="/about">
+
+                                        <MudAvatar Image="img/me.jpg" Size="Size.Medium" Class="ml-5 mt-3"/>
+                                    </MudLink>
+                                </MudTooltip>
+                            }
+                        </MudItem>
+                    </MudGrid>
+                </MudHidden>
             </div>
             @Body
             <div id="footer">

@@ -1,8 +1,14 @@
 ﻿<MudItem xs="2"/>
 <MudItem xs="8">
     <MudGrid>
+
         <MudItem xs="2">
-            <MudImage Src="@($"{Post.Metadata.Hero.ImgIxUrl}?w=100&h=100&q=50&fit=crop")" Alt="Visual Studio Logo"/>
+            <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                <MudImage Src="@($"{Post.Metadata.Hero.ImgIxUrl}?w=100&h=100&q=50&fit=crop")"/>
+            </MudHidden>
+            <MudHidden Breakpoint="Breakpoint.MdAndUp">
+                <MudImage Src="@($"{Post.Metadata.Hero.ImgIxUrl}?w=35&h=35&q=50&fit=crop")"/>
+            </MudHidden>
         </MudItem>
         <MudItem xs="10">
             <MudLink Href="@($"/post/{Post.Slug}/{PageLocation}")" Underline="Underline.None"

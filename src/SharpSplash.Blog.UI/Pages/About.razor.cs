@@ -20,5 +20,7 @@
         private const string EtsyUrl = "https://www.etsy.com/shop/TheCraftyMakr";
         private const string FacebookUser = "Christof Lauriers";
         private const string FacebookUrl = "https://www.facebook.com/christof.lauriers";
+        private const string PrintablesUser = "The Crafty Maker";
+        private const string PrintablesUrl = "https://www.printables.com/social/283546-thecraftymaker/about";
     }
 }

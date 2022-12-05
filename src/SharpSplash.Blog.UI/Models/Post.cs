@@ -64,8 +64,8 @@ namespace SharpSplash.Blog.UI.Models
                 {
                     "home automation" => Color.Secondary,
                     "tinkering" => Color.Info,
-                    /*"deep thoughts" => Color.Success,
-                    "random" => Color.Warning,*/
+                    "3d printing" => Color.Success,
+                    /*"random" => Color.Warning,*/
                     _ => Color.Default
                 };
             }

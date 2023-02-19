@@ -22,5 +22,7 @@
         private const string FacebookUrl = "https://www.facebook.com/christof.lauriers";
         private const string PrintablesUser = "The Crafty Maker";
         private const string PrintablesUrl = "https://www.printables.com/social/283546-thecraftymaker/about";
+        private const string ThangsUser = "The Crafty Maker";
+        private const string ThangsUrl = "https://thangs.com/designer/TheCraftyMaker";
     }
 }

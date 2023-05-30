@@ -30,5 +30,7 @@
         private const string BuyMeCoffeeUrl = "https://www.buymeacoffee.com/thecraftymaker";
         private const string PaypalMeUser = "Krikke21";
         private const string PaypalMeUrl = "https://paypal.me/krikke21";
+        private const string PatreonUser = "The Crafty Maker";
+        private const string PatreonUrl = "https://www.patreon.com/TheCraftyMaker";
     }
 }

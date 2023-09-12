@@ -2,8 +2,8 @@
 {
     public partial class About
     {
-        private const string TwitterUser = "krikke21";
-        private const string TwitterUrl = "https://twitter.com/krikke21";
+        private const string TwitterUser = "TheCraftyMaker";
+        private const string TwitterUrl = "https://twitter.com/TheCraftyMaker";
         private const string MastodonUser = "@thecraftymaker@mastodon.online";
         private const string MastodonUrl = "https://mastodon.online/@thecraftymaker";
         private const string YouTubeUser = "The Crafty Maker";

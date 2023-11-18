@@ -1,7 +1,7 @@
 {
   "entryAssembly": "SharpSplash.Blog.UI",
   "resources": {
-    "hash": "sha256-FEIaJZYRC7YM6jJulIshMteEi6N/NRRDAjtgLHNef4E=",
+    "hash": "sha256-ZRJtMcRX6lvu1ma3+TtdPXimE/4+ueBMAl6hCmuLzZ0=",
     "runtime": {
       "dotnet.6.0.25.0ibdzzkyii.js": "sha256-1jUGCCSGH9JWhkqbHdQk8JBjBI8K/VC63En5zlypVps=",
       "dotnet.timezones.blat": "sha256-KsGUR9nqtXb3Hy6IrNlnc1HoSS+AFlsXTX9rq4oChtA=",
@@ -31,7 +31,7 @@
       "Microsoft.Toolkit.Diagnostics.dll": "sha256-2Z+ws9ZrFKZeWaXyZ+zGFomuMmnJj6qEkQl+G4LEgns=",
       "Microsoft.Win32.Primitives.dll": "sha256-2hO/BBYjVhhwmwsMQ3c5ed6GMmOgxEo2m97IQMLMA1o=",
       "MudBlazor.dll": "sha256-XsMvX0TsMUF5BnT3FLPgmo8WYSFRjDJfyCln/o54X2A=",
-      "SharpSplash.Blog.UI.dll": "sha256-lxlDcxStf/J9z6aXIUdbylaRpNgjauvTnxic7mTbkFI=",
+      "SharpSplash.Blog.UI.dll": "sha256-bvU7ZVBwsCOkiLIDxUU7XaSUf3fputK0zhyfxS2wexg=",
       "System.Collections.Concurrent.dll": "sha256-g84Kjhb95AIvBjZae6LKYUsZ8X73JuZfp0LBtn96muc=",
       "System.Collections.dll": "sha256-pqdxLzp1PcpvkWRBLYUZ65Ss/FJu4fWlq0xWDgXFlnw=",
       "System.Collections.NonGeneric.dll": "sha256-xzdvRU4KAhekZ4enl+SIpdUbYRLl/RPVYzyFrQNQxkw=",
